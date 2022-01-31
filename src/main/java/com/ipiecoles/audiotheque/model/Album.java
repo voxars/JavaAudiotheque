@@ -5,17 +5,13 @@ import org.springframework.data.jpa.repository.query.PartTreeJpaQuery;
 import javax.persistence.*;
 
 @Entity
-//@Table(name="album")
 public class Album {
     @Id
-    //@Column(name="albumleid")
     private Long id;
-    //@Column(name="albumletitle")
     private String title;
 
     @ManyToOne
     private Artist artist;
-    //private int artist_id = artist.getId();
 
     public Album() {}
 
