@@ -17,9 +17,7 @@ public class GlobalExceptionHandler {
         return "La valeur " + e.getValue() + " est incorrecte pour le paramètre "
                 + e.getName();
     }
-    /*public String handleEntityNotFoundException(EntityNotFoundException entityNotFoundException){
-        return e.getMessage();
-    }*/
+
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String handleIllegalArgumentException(IllegalArgumentException e){
