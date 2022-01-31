@@ -49,13 +49,11 @@ public class ArtistController {
             return artist.get();
         }
         throw new EntityNotFoundException("L'artiste d'identifiant " + id + " n'existe pas !");
-        /*Artist artist = artistRepository.findById(id);
-        return artist;*/
+
 
     }
 
 
- //liste d'artistes avec noms
     @RequestMapping(
             method = RequestMethod.GET,
             value = "",
@@ -66,7 +64,6 @@ public class ArtistController {
             @RequestParam String name
     ){
 
-        //String nameShort = name.substring(0,4);
 
         List<Artist> artists = artistRepository.findByName(name);
             if(artists != null){
@@ -141,7 +138,7 @@ public class ArtistController {
     ){
 
 
-        Optional<Artist> artist = artistRepository.findById(id); //On recup l'id.
+        Optional<Artist> artist = artistRepository.findById(id); 
 
         String name="";
 
@@ -153,7 +150,6 @@ public class ArtistController {
             }
             else{
                 name = m.group(1);
-                //System.out.println(name);
 
             }
         }
