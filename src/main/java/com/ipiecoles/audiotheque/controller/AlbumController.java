@@ -49,14 +49,6 @@ public class AlbumController {
         throw new EntityNotFoundException("L'album d'identifiant " + id + " n'existe pas !");
     }
 
-
-    /*@RequestMapping(
-            method = RequestMethod.POST,
-            value = "",
-            produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE
-    )*/
-
     @PostMapping(
             value = "",
             produces = MediaType.APPLICATION_JSON_VALUE,
@@ -79,12 +71,11 @@ public class AlbumController {
 
 
 
-        Pattern findQuotes = Pattern.compile("\"([^\"]*)\""); //On récupère toutes les valeurs entre guillemets avec regex
+        Pattern findQuotes = Pattern.compile("\"([^\"]*)\""); 
         Pattern findId = Pattern.compile("([1-9]|[1-9][0-9]|[1-9][0-9][0-9])"); //
         Matcher m = findQuotes.matcher(infos);
         Matcher matchId = findId.matcher(infos);
         while (m.find()) {
-            //dans la boucle ,m.group(1) renvoit "name", le nom rentré et "id", donc on filtre les autres
             if(m.group(1).equals("title") || m.group(1).equals("id")  || m.group(1).equals("artist")  || m.group(1).equals("name") ){
                 continue;
 
@@ -112,7 +103,6 @@ public class AlbumController {
         album.setTitle(albumTitle);
         album.setArtist(artist);
 
-        //return albumRepository.addAlbumToArtist(albumTitle, artist.getId());
         return albumRepository.save(album);
 
 
@@ -128,7 +118,6 @@ public class AlbumController {
     public void deleteAlbum(
             @PathVariable Long id
     ){
-        //Album album = albumRepository.getById(id);
         albumRepository.deleteById(id);
     }
 }
