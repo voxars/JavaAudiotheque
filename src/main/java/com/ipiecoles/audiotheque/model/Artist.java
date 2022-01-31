@@ -6,13 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@Table(name="artist")
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name="artistleid")
     private Long id;
-    //@Column(name="artistlename")
     private String name;
 
     @OneToMany()
